@@ -8,7 +8,7 @@ function ApiKeyPanel({ apiKey, unsplashKey, mode, onClearData }) {
 
       <div className="service-row">
         <div>
-          <p className="field-label">OpenAI API Key</p>
+          <p className="field-label">Anthropic API Key</p>
           <p className="status-text">{apiKey ? 'Configured via .env' : 'Not configured'}</p>
         </div>
 
@@ -20,7 +20,7 @@ function ApiKeyPanel({ apiKey, unsplashKey, mode, onClearData }) {
 
       <p className="status-text">
         {mode === 'live'
-          ? 'Live AI mode is active. OpenAI and Unsplash will be used for analysis and image search.'
+          ? 'Live AI mode is active. Claude and Unsplash will be used for analysis and image search.'
           : 'No keys detected. Create a .env file from .env.example to enable live mode.'}
       </p>
 

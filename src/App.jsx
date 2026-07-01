@@ -2,11 +2,11 @@ import { useEffect, useMemo, useState } from 'react'
 import './App.css'
 import ApiKeyPanel from './components/ApiKeyPanel'
 import { buildImageOptions, generateStoryDraft } from './lib/storyAgent.clean'
-import { analyzeStory } from './services/openai'
+import { analyzeStory } from './services/claude'
 import { searchUnsplashImages } from './services/unsplash'
 
 const STORAGE_KEY = 'travelcanvas-stories'
-const envOpenAiKey = import.meta.env.VITE_OPENAI_API_KEY || ''
+const envAnthropicKey = import.meta.env.VITE_ANTHROPIC_API_KEY || ''
 const envUnsplashKey = import.meta.env.VITE_UNSPLASH_ACCESS_KEY || ''
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
   const [imageOptions, setImageOptions] = useState([])
   const [isGenerating, setIsGenerating] = useState(false)
   const [status, setStatus] = useState('Write a travel note and let the agent craft a story.')
-  const [apiKey] = useState(envOpenAiKey)
+  const [apiKey] = useState(envAnthropicKey)
   const [unsplashKey] = useState(envUnsplashKey)
 
   useEffect(() => {
@@ -99,7 +99,7 @@ function App() {
   }
 
   const handleClearData = () => {
-    if (window.confirm('Á¤¸» ¸ðµç ½ºÅä¸®¸¦ »èÁ¦ÇÏ½Ã°Ú½À´Ï±î?')) {
+    if (window.confirm('ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?')) {
       try {
         localStorage.removeItem(STORAGE_KEY)
         setStories([])
